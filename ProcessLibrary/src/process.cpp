@@ -1,4 +1,4 @@
-#include "process.h"
+#include "../include/process.h"
 
 #ifdef _WIN32
     #include <windows.h>
@@ -53,6 +53,8 @@ bool Process::wait(int& exitCode)
     DWORD code;
 
     if(!GetExitCodeProcess(info.hProcess, &code)){
+        CloseHandle(info.hProcess);
+        CloseHandle(info.hThread);
         return false;
     }
 
