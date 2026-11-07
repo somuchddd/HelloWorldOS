@@ -2,6 +2,7 @@
 #define PROCESS_H
 
 #include <string>
+#include <vector>
 
 #ifdef _WIN32
     #include <windows.h>
@@ -21,7 +22,7 @@ class Process
     #endif
 
     public:
-        bool start(const std::string& program);
+        bool start(const std::string& program, const std::vector<std::string>& args = {});
         bool wait(int& exitCode);
 };
 

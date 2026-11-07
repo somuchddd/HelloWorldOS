@@ -8,9 +8,9 @@ int main()
     std::cout << "Starting process..." << std::endl;
 
 #ifdef _WIN32
-    if (!process.start("child.exe"))
+    if (!process.start("child.exe", {"--verbose", "--timeout", "10"}))
 #else
-    if (!process.start("./child"))
+    if (!process.start("./child", {"--verbose", "--timeout", "10"}))
 #endif
 
     {
